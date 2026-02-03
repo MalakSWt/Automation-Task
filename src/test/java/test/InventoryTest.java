@@ -20,4 +20,37 @@ public class InventoryTest extends BaseTest {
         Assert.assertEquals(inventoryPage.getinventoryitemscount(),6,"Incorrect number of products displayed");
 
     }
+    @Test
+    public void TwitterIconTest() throws IOException, ParseException, InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("standard_user","secret_sauce");
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        inventoryPage.clickOnTwitterIcon();
+        inventoryPage.switchToNewTab();
+
+        Assert.assertTrue(inventoryPage.getUrl().contains("x.com"),"You are in a wrong page");
+
+    }
+    @Test
+    public void FacebookIconTest() throws IOException, ParseException, InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("standard_user","secret_sauce");
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        inventoryPage.clickOnFacebookIcon();
+        inventoryPage.switchToNewTab();
+
+        Assert.assertTrue(inventoryPage.getUrl().contains("facebook"),"You are in a wrong page");
+
+    }
+    @Test
+    public void LinkedinIconTest() throws IOException, ParseException, InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("standard_user","secret_sauce");
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        inventoryPage.clickOnLinkedinIcon();
+        inventoryPage.switchToNewTab();
+
+        Assert.assertTrue(inventoryPage.getUrl().contains("linkedin"),"You are in a wrong page");
+
+    }
 }
